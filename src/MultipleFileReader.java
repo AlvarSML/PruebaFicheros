@@ -16,6 +16,7 @@ public class MultipleFileReader {
 
     public ArrayList<String> readFilesFromPath(String path, String extension) throws InterruptedException {
         ArrayList<String> data = new ArrayList<String>();
+        
         File dir = new File(path);
 
         // Evitar paths incorrectos
