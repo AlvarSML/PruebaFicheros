@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"<Unnamed>","l":"FileReaderThread"},{"p":"<Unnamed>","l":"LinesConsumer"},{"p":"<Unnamed>","l":"Main"},{"p":"<Unnamed>","l":"MultipleFileReader"}];updateSearchResults();
