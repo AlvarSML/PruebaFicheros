@@ -22,4 +22,4 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
     - name: Build with Ant
-      run: ant -verbose -noinput -buildfile build.xml
+      run: ant -verbose -noinput -f build.xml
