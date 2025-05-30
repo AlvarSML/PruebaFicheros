@@ -68,6 +68,8 @@ public class GestionEventos {
      */
     public Evento[] buscarEventosPorFuente(String nombreFuente) {
         Fuente fuenteObjetivo = this.fuentesNombre.get(nombreFuente);
+        if (fuenteObjetivo == null) return new Evento[0];
+
         ArrayList<Evento> eventosFuente = new ArrayList();
         for (Evento e : this.datosEventos) {
             if (e.fuente == fuenteObjetivo.id) {

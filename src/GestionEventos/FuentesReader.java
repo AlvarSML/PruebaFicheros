@@ -29,7 +29,7 @@ public class FuentesReader implements Runnable {
                 String evento = colaLineas.take();
                 Fuente fuenteConstruida = Fuente.fromCsv(evento);
                 if (fuenteConstruida != null) {
-                    System.out.println("> "+fuenteConstruida.toString());
+                    // System.out.println("> "+fuenteConstruida.toString());
                     this.listaFuentes.add(fuenteConstruida);
                 }
 

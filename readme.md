@@ -22,6 +22,7 @@ Comandos:
 ant -f build.xml compile
 
 # compilar y lanzar (main)
+# ahora mismo no hay nada que lanzar en main
 ant -f build.xml run
 
 # lanzar test
@@ -29,3 +30,17 @@ ant -f build.xml test
 
 
 ```
+
+## Requisitos
+
+Funciones:
+
+- [x] Se cargan 1+ archivos de eventos de forma paralela
+- [x] Se cargan 1+ archivos de funtes de forma paralela
+- [x] Se puede buscar por fuente
+- [x] Se puede buscar un intervalo de tiempo
+- [x] Se puede buscar un intervalo de valores
+- [x] Se imprimen las fuentes
+- [ ] Se imprimen los Eventos con los datos de las fuentes
+
+Test:

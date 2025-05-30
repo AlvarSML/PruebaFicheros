@@ -36,7 +36,7 @@ public class FileReaderThread implements Runnable {
             while ((linea = bufferedReader.readLine()) != null) {
                 
                 if (!linea.isBlank() && !linea.isEmpty()) {
-                    System.out.println("< " + linea);
+                    //System.out.println("< " + linea);
                     colaLineas.put(linea);
                 }
             }

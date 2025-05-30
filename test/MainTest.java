@@ -12,6 +12,8 @@ import java.util.Date;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Test;
 import org.junit.*;
 
@@ -35,14 +37,15 @@ public class MainTest {
         this.ge = new GestionEventos("./", ".ev", ".fu").leerArchivosEventos();
         //this.mfr = new MultipleFileReader();
         //this.arr = mfr.readFilesFromPath("./", ".txt");
-
+        
+        /*
         for (Evento e : this.ge.datosEventos) {
             System.out.println(e);
         }
 
         for (Fuente f : this.ge.datosFuentes) {
             System.out.println(f);
-        }
+        }*/
     }
 
     /**
@@ -122,4 +125,48 @@ public class MainTest {
         assertEquals(6, res.length);
 
     }
+
+    @Test
+    public void testBuscarEventosPorFuente_NombreInexistente() {
+      Evento[] res = this.ge.buscarEventosPorFuente("FuenteInexistente");
+      assertNotNull(res);
+      assertEquals(0, res.length);
+    }
+
+    @Test
+    public void testBSearchClosestEvento_ListaVacia() {
+      GestionEventos vacio = new GestionEventos("./", ".ev", ".fu");
+      int idx = vacio.bSearchClosestEvento(12345L, 0);
+      assertEquals(-1, idx);
+    }
+
+    @Test
+    public void testBuscarEntreFechas_FechasFueraDeRango() {
+      Date inicio = new Date(0); // Muy anterior a cualquier evento
+      Date fin = new Date(10);   // Muy anterior a cualquier evento
+      Evento[] res = this.ge.buscarEntreFechas(inicio, fin);
+      assertNotNull(res);
+    }
+  
+    @Test
+    public void testBuscarEntreValores_MinMayorQueMax() {
+      Evento[] res = this.ge.buscarEntreValores(100, 50); // min > max
+      assertNotNull(res);
+    }
+  
+    @Test
+    public void testBuscarEntreValores_SinCoincidencias() {
+      Evento[] res = this.ge.buscarEntreValores(-1000, -900); // Rango fuera de los valores
+      assertNotNull(res);
+      assertEquals(0, res.length);
+    }
+  
+    @Test
+    public void testBuscarEntreFechas_UnSoloEvento() {
+      if (!this.ge.datosEventos.isEmpty()) {
+          Date fechaEvento = new Date(this.ge.datosEventos.get(0).timestamp);
+          Evento[] res = this.ge.buscarEntreFechas(fechaEvento, fechaEvento);
+          assertNotNull(res);
+    }
+  }
 }
