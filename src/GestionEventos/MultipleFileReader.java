@@ -40,7 +40,7 @@ public class MultipleFileReader {
 
         // En teoria la lectura de archivo siempre sera mas lenta que el consumo
         // de la cola
-        BlockingQueue<String> queueEventos = new ArrayBlockingQueue(1024);
+        BlockingQueue<String> queueEventos = new ArrayBlockingQueue(1048576);
         BlockingQueue<String> queueFuentes = new ArrayBlockingQueue(1024);
 
         // Pool de hilos por eficiencia

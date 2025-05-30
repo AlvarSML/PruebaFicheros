@@ -13,9 +13,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertNotNull;
+import org.junit.BeforeClass;
 
 import org.junit.Test;
-import org.junit.*;
 
 /**
  *
@@ -23,29 +23,15 @@ import org.junit.*;
  */
 public class MainTest {
 
-    GestionEventos ge;
-    Fuente[] fs;
+    static GestionEventos ge;
 
-    public MainTest() throws InterruptedException {
-        this.fs = new Fuente[]{
-            new Fuente(0, "F0"),
-            new Fuente(1, "F1"),
-            new Fuente(2, "F2"),
-            new Fuente(3, "F3"),
-            new Fuente(4, "F4"),};
-
-        this.ge = new GestionEventos("./", ".ev", ".fu").leerArchivosEventos();
-        //this.mfr = new MultipleFileReader();
-        //this.arr = mfr.readFilesFromPath("./", ".txt");
-        
-        /*
-        for (Evento e : this.ge.datosEventos) {
-            System.out.println(e);
-        }
-
-        for (Fuente f : this.ge.datosFuentes) {
-            System.out.println(f);
-        }*/
+    static GestionEventos geGrande;
+  
+  
+    @BeforeClass
+    public static void setup() throws InterruptedException{
+      ge = new GestionEventos("./", ".ev", ".fu").leerArchivosEventos();
+      geGrande = new GestionEventos("./archivos-test", ".ev", ".fu").leerArchivosEventos();
     }
 
     /**
