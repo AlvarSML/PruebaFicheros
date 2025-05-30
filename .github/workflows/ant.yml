@@ -13,6 +13,7 @@ jobs:
   download-junit:
      runs-on: ubuntu-latest
      steps:
+
       - name: Descargar-JUnit
         run: |
           mkdir -p lib
@@ -31,5 +32,6 @@ jobs:
         distribution: 'temurin'
   
     - name: Build with Ant
-      
-      run: ant -verbose -noinput -f build.xml
+      run: ant -noinput -f build.xml build
+    - name: Test with Ant
+      run: ant -noinput -f build.xml test
