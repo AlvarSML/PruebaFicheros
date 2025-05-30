@@ -24,5 +24,8 @@ ant -f build.xml compile
 # compilar y lanzar (main)
 ant -f build.xml run
 
+# lanzar test
+ant -f build.xml test
+
 
 ```
